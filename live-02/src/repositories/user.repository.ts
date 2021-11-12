@@ -25,7 +25,6 @@ class UserRepository {
     return user
   }
 
-
   async createUser({ userName, email, password }: User): Promise<User> {
     const script = `
     INSERT INTO application_user (
@@ -52,6 +51,15 @@ class UserRepository {
     WHERE uuid = $4
     `
     const values = [userName, email, password, uuid]
+    await db.query<User>(script, values)
+  }
+
+  async deleteUser(uuid: string): Promise<void> {
+    const script = `
+    DELETE FROM application_user
+    WHERE uuid = $1
+    `
+    const values = [uuid]
     await db.query<User>(script, values)
   }
 }
