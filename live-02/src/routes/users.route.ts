@@ -1,14 +1,6 @@
 import { NextFunction, Request, Response, Router } from 'express'
 import { StatusCodes } from 'http-status-codes'
 
-/*
-get /users
-get /users/:uuid
-post /users
-put /users/:uuid
-delete /users/:uuid
-*/
-
 const usersRoute = Router()
 interface User {
   uuid?: string
