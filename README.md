@@ -1,6 +1,6 @@
  # Microserviço de autenticação com Nodejs
 
-Este é um projeto desenvolvido durante algumas lives para dissiminação de conhecimento dentro da [DIO](https://digitalinnovation.one/), uma plataforma de cursos gratuíta que todo DEV deveria conhecer! :wink:
+Este é um projeto desenvolvido durante algumas lives para dissiminação de conhecimento dentro da [DIO](https://digitalinnovation.one/), uma plataforma de cursos gratuíta ! :wink:
 
 Neste projeto iremos criar um **microserviço de autenticação** que poderá compor a sua caixa de ferramentas e ser muito útil no seu dia a dia. :hammer::wrench:
 
