@@ -20,9 +20,10 @@ usersRoute.get(
 
 usersRoute.post(
   '/users',
-  (req: Request, res: Response, next: NextFunction) => {
+  async (req: Request, res: Response, next: NextFunction) => {
     const newUser = req.body
-    res.status(StatusCodes.CREATED).send(newUser)
+    const uuid = await userRepository.createUser(newUser)
+    res.status(StatusCodes.CREATED).send(uuid)
   }
 )
 
