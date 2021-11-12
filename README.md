@@ -1,16 +1,24 @@
-# Microserviço de autenticação com Nodejs
-Projeto desenvolvido sobre sopervisão da plataforma DIO
+ Microserviço de autenticação com Nodejs
 
-Neste projeto iremos criar um microserviço de autenticação para poder compor minha caixa de feramentas  para ser utilizada no meu dia dia.
+Este é um projeto desenvolvido durante algumas lives para dissiminação de conhecimento dentro da [DIO](https://digitalinnovation.one/), uma plataforma de cursos gratuíta que todo DEV deveria conhecer! :wink:
 
-### Composição do projeto
+Neste projeto iremos criar um **microserviço de autenticação** que poderá compor a sua caixa de ferramentas e ser muito útil no seu dia a dia. :hammer::wrench:
 
-Neste projetos temos alguns Endpoints Base que podem ser extendidos de forma adequada para alguns contextos
+## Composição do nosso projeto
+
+Neste projeto Temos alguns **Endpoints Base** que podem ser extendidos da forma mais adequada para seu contexto. 
+
 São eles:
 
-Usuarios
-GET /users
-GET /Users/:uuid
-POST /Users
-PUT /Users/:uuid
-DELETE /Users/:uuid
+### Usuários
+
+* GET /users
+* GET /users/:uuid
+* POST /users
+* PUT /users/:uuid
+* DELETE /users/:uuid
+
+### Autenticação
+
+* POST /token
+* POST /token/validate
