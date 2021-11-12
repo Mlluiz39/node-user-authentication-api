@@ -4,7 +4,7 @@ Este é um projeto desenvolvido durante algumas lives para dissiminação de con
 
 Neste projeto iremos criar um **microserviço de autenticação** que poderá compor a sua caixa de ferramentas e ser muito útil no seu dia a dia. :hammer::wrench:
 
-## Composição do nosso projeto
+## Composição do projeto
 
 Neste projeto Temos alguns **Endpoints Base** que podem ser extendidos da forma mais adequada para seu contexto. 
 
