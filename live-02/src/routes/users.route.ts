@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response, Router } from 'express'
 import { StatusCodes } from 'http-status-codes'
 import userRepository from '@/repositories/user.repository'
+import DataBaseError from '@/models/errors/database.error.models'
 
 const usersRoute = Router()
 
@@ -15,9 +16,17 @@ usersRoute.get(
 usersRoute.get(
   '/users/:uuid',
   async (req: Request, res: Response, next: NextFunction) => {
-    const { uuid } = req.params
-    const user = await userRepository.findUserByUser(uuid)
-    res.status(StatusCodes.OK).send(user)
+    try {
+      const { uuid } = req.params
+      const user = await userRepository.findUserByUser(uuid)
+      res.status(StatusCodes.OK).send(user)
+    } catch (error) {
+      if (error instanceof DataBaseError) {
+        res.sendStatus(StatusCodes.BAD_REQUEST)
+      } else {
+        res.sendStatus(StatusCodes.INTERNAL_SERVER_ERROR)
+      }
+    }
   }
 )
 
