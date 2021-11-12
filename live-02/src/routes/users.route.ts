@@ -1,13 +1,8 @@
 import { NextFunction, Request, Response, Router } from 'express'
 import { StatusCodes } from 'http-status-codes'
+import User  from '@/models/user.model'
 
 const usersRoute = Router()
-interface User {
-  uuid?: string
-  userName: string
-  email: string
-  password: string
-}
 
 usersRoute.get('/users', (req: Request, res: Response, next: NextFunction) => {
   const users: User[] = [
