@@ -13,7 +13,7 @@ usersRoute.get(
   '/users/:uuid',
   async (req: Request, res: Response, next: NextFunction) => {
     const { uuid } = req.params
-    const user = await userRepository.findUserByUuid(uuid)
+    const user = await userRepository.findUserByUser(uuid)
     res.status(StatusCodes.OK).send(user)
   }
 )
@@ -27,11 +27,13 @@ usersRoute.post(
   }
 )
 
-usersRoute.put('/users/:uuid', (req: Request, res: Response, next: NextFunction) => {
+usersRoute.put('/users/:uuid', async (req: Request, res: Response, next: NextFunction) => {
   const uuid = req.params.uuid
   const updatedUser = req.body
 
   updatedUser.uuid = uuid
+
+  await userRepository.updateUser(updatedUser)
 
   res.status(StatusCodes.OK).send({ uuid, updatedUser })
 

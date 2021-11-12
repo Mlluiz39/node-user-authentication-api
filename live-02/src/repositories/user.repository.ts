@@ -11,7 +11,7 @@ class UserRepository {
     return rows || []
   }
 
-  async findUserByUuid(uuid: string): Promise<User> {
+  async findUserByUser(uuid: string): Promise<User> {
     const query = `
     SELECT uuid, userName, email
     FROM application_user
@@ -40,6 +40,19 @@ class UserRepository {
     const [userCreated] = rows
 
     return userCreated
+  }
+
+  async updateUser({ userName, email, password, uuid }: User): Promise<void> {
+    const script = `
+    UPDATE application_user 
+    SET 
+      userName = $1, 
+      email = $2, 
+      password = crypt($3, 'my_salt') 
+    WHERE uuid = $4
+    `
+    const values = [userName, email, password, uuid]
+    await db.query<User>(script, values)
   }
 }
 
