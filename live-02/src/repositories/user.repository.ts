@@ -15,7 +15,7 @@ class UserRepository {
   async findUserByUser(uuid: string): Promise<User> {
     try {
       const query = `
-      SELECT uuid, userName, email
+      SELECT uuid, userName, email, password
       FROM application_user
       WHERE uuid = $1
       `

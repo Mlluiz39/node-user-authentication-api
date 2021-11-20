@@ -5,7 +5,7 @@ import userRepository from '@/repositories/user.repository'
 const usersRoute = Router()
 
 usersRoute.get(
-  '/users',
+  '/user',
   async (req: Request, res: Response, next: NextFunction) => {
     const users = await userRepository.findAllUsers()
     res.status(StatusCodes.OK).send(users)
@@ -13,7 +13,7 @@ usersRoute.get(
 )
 
 usersRoute.get(
-  '/users/:uuid',
+  '/user/:uuid',
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const { uuid } = req.params
@@ -26,7 +26,7 @@ usersRoute.get(
 )
 
 usersRoute.post(
-  '/users',
+  '/user',
   async (req: Request, res: Response, next: NextFunction) => {
     const newUser = req.body
     const uuid = await userRepository.createUser(newUser)
@@ -35,7 +35,7 @@ usersRoute.post(
 )
 
 usersRoute.put(
-  '/users/:uuid',
+  '/user/:uuid',
   async (req: Request, res: Response, next: NextFunction) => {
     const uuid = req.params.uuid
     const updatedUser = req.body
@@ -47,7 +47,7 @@ usersRoute.put(
 )
 
 usersRoute.delete(
-  '/users/:uuid',
+  '/user/:uuid',
   async (req: Request, res: Response, next: NextFunction) => {
     const uuid = req.params.uuid
     await userRepository.deleteUser(uuid)
